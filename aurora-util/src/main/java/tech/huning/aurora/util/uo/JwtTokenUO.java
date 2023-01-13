@@ -1,0 +1,73 @@
+package tech.huning.aurora.util.uo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * JWT Token 模型
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
+public class JwtTokenUO {
+
+    // 用户名
+    private String username;
+    // 密钥
+    private String secretKey;
+    // 失效时间(秒)
+    private Long expireSecond;
+    // 令牌
+    private String token;
+
+    private final Map<String, Object> claims = new HashMap<>();
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getSecretKey() {
+        return secretKey;
+    }
+
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Long getExpireSecond() {
+        return expireSecond;
+    }
+
+    public void setExpireSecond(Long expireSecond) {
+        this.expireSecond = expireSecond;
+    }
+
+    public Map<String, Object> getClaims() {
+        return claims;
+    }
+
+    public void addClaim(String key, Object value){
+        this.claims.put(key, value);
+    }
+
+    public Object getClaim(String key){
+        return this.claims.get(key);
+    }
+
+    public <T> T getClaim(String key, Class<T> t){
+        return t.cast(claims.get(key));
+    }
+
+}
