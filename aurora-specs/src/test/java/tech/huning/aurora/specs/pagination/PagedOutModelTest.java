@@ -22,7 +22,7 @@ public class PagedOutModelTest {
         pagedOutModel.setData(Collections.singletonList(UUID.randomUUID().toString()))
                      .setPageNo(1)
                      .setPageSize(10)
-                     .setTotalNumber(101L);
+                     .setTotalCount(101L);
 
         Assert.assertEquals(Long.valueOf(11), pagedOutModel.getTotalPage());
     }

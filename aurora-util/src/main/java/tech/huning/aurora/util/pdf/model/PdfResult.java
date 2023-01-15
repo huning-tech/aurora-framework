@@ -2,20 +2,26 @@ package tech.huning.aurora.util.pdf.model;
 
 import java.util.List;
 
+/**
+ * Pdf处理结果
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
 public class PdfResult {
 
-    private boolean succ;
+    private boolean success;
 
     private List<String> imageFiles;
 
     private long totalPage;
 
-    public boolean isSucc() {
-        return succ;
+    public boolean isSuccess() {
+        return success;
     }
 
-    public void setSucc(boolean succ) {
-        this.succ = succ;
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public List<String> getImageFiles() {

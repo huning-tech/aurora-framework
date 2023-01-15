@@ -1,5 +1,8 @@
 package tech.huning.aurora.util.math;
 
+import tech.huning.aurora.specs.exception.CheckException;
+import tech.huning.aurora.util.constant.UtilResultCode;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -20,7 +23,7 @@ public class BigDecimalUtil {
     }
 
     /**
-     * 提供精确的加法运算。
+     * 精确加法运算
      *
      * @param v1 被加数
      * @param v2 加数
@@ -33,7 +36,7 @@ public class BigDecimalUtil {
     }
 
     /**
-     * 提供精确的减法运算。
+     * 精确减法运算
      *
      * @param v1 被减数
      * @param v2 减数
@@ -46,7 +49,7 @@ public class BigDecimalUtil {
     }
 
     /**
-     * 提供精确的乘法运算。
+     * 精确乘法运算
      *
      * @param v1 被乘数
      * @param v2 乘数
@@ -59,30 +62,27 @@ public class BigDecimalUtil {
     }
 
     /**
-     * 提供（相对）精确的除法运算，当发生除不尽的情况时，精确到
-     * 小数点以后10位，以后的数字四舍五入。
+     * 提供（相对）精确的除法运算，当发生除不尽的情况时，精确到小数点以后10位，以后的数字四舍五入
      *
      * @param v1 被除数
      * @param v2 除数
      * @return 两个参数的商
      */
-    public static double divide(double v1, double v2) {
+    public static double divide(double v1, double v2) throws CheckException {
         return divide(v1, v2, DEF_DIV_SCALE);
     }
 
     /**
-     * 提供（相对）精确的除法运算。当发生除不尽的情况时，由scale参数指
-     * 定精度，以后的数字四舍五入。
+     * 提供（相对）精确的除法运算。当发生除不尽的情况时，由scale参数指定精度，以后的数字四舍五入
      *
      * @param v1    被除数
      * @param v2    除数
      * @param scale 表示表示需要精确到小数点以后几位。
      * @return 两个参数的商
      */
-    public static double divide(double v1, double v2, int scale) {
+    public static double divide(double v1, double v2, int scale) throws CheckException {
         if (scale < 0) {
-            throw new IllegalArgumentException(
-                    "The scale must be a positive integer or zero");
+            throw new CheckException(UtilResultCode.SCALE_MUST_BE_POSITIVE);
         }
         BigDecimal b1 = BigDecimal.valueOf(v1);
         BigDecimal b2 = BigDecimal.valueOf(v2);
@@ -90,20 +90,18 @@ public class BigDecimalUtil {
     }
 
     /**
-     * 提供精确的小数位四舍五入处理。
+     * 精确小数位四舍五入处理
      *
      * @param v     需要四舍五入的数字
      * @param scale 小数点后保留几位
      * @return 四舍五入后的结果
      */
-    public static double round(double v, int scale) {
+    public static double round(double v, int scale) throws CheckException {
         if (scale < 0) {
-            throw new IllegalArgumentException(
-                    "The scale must be a positive integer or zero");
+            throw new CheckException(UtilResultCode.SCALE_MUST_BE_POSITIVE);
         }
         BigDecimal b = BigDecimal.valueOf(v);
-        BigDecimal one = new BigDecimal("1");
-        return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
+        return b.divide(BigDecimal.ONE, scale, RoundingMode.HALF_UP).doubleValue();
     }
 
     /**

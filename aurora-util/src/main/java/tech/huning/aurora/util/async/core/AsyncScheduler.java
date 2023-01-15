@@ -15,6 +15,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 异步任务调度器
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
 public final class AsyncScheduler implements IAsyncScheduler {
 
     private static final Logger logger = LoggerFactory.getLogger(AsyncScheduler.class);

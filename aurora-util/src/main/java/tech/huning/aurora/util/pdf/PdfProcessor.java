@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public class PdfProcessor implements IPdfProcessor {
 
-    private Logger logger = LoggerFactory.getLogger(PdfProcessor.class);
+    private final Logger logger = LoggerFactory.getLogger(PdfProcessor.class);
 
     private Class<? extends IPdfLibrary> clazz = MagickPdfLibrary.class;
 
@@ -22,7 +22,7 @@ public class PdfProcessor implements IPdfProcessor {
     }
 
     private static class PdfProcessorHolder {
-        private static PdfProcessor INSTANCE = new PdfProcessor();
+        private static final PdfProcessor INSTANCE = new PdfProcessor();
     }
 
     @Override
@@ -38,15 +38,9 @@ public class PdfProcessor implements IPdfProcessor {
         try {
             IPdfLibrary pdfLibrary = this.clazz.newInstance();
             pdfResult.setTotalPage(pdfLibrary.getTotalPage(param.getFilePath()));
-            pdfResult.setSucc(true);
-        } catch (InstantiationException e) {
-            pdfResult.setSucc(false);
-            logger.error(e.getMessage(), e);
-        } catch (IllegalAccessException e) {
-            pdfResult.setSucc(false);
-            logger.error(e.getMessage(), e);
-        } catch (PdfException e) {
-            pdfResult.setSucc(false);
+            pdfResult.setSuccess(true);
+        } catch (InstantiationException | IllegalAccessException | PdfException e) {
+            pdfResult.setSuccess(false);
             logger.error(e.getMessage(), e);
         }
 
@@ -60,15 +54,9 @@ public class PdfProcessor implements IPdfProcessor {
         try {
             IPdfLibrary pdfLibrary = this.clazz.newInstance();
             pdfResult = pdfLibrary.convert(param);
-            pdfResult.setSucc(true);
-        } catch (InstantiationException e) {
-            pdfResult.setSucc(false);
-            logger.error(e.getMessage(), e);
-        } catch (IllegalAccessException e) {
-            pdfResult.setSucc(false);
-            logger.error(e.getMessage(), e);
-        } catch (PdfException e) {
-            pdfResult.setSucc(false);
+            pdfResult.setSuccess(true);
+        } catch (InstantiationException | IllegalAccessException | PdfException e) {
+            pdfResult.setSuccess(false);
             logger.error(e.getMessage(), e);
         }
 

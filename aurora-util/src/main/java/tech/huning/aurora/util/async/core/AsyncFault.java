@@ -2,6 +2,12 @@ package tech.huning.aurora.util.async.core;
 
 import tech.huning.aurora.util.async.specs.IAsyncFault;
 
+/**
+ * 异步处理错误
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
 public enum AsyncFault implements IAsyncFault {
 
     SERVER_NOT_LISTEN("服务未启动!"),

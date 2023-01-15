@@ -11,15 +11,21 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.CountDownLatch;
 
-public class PdfBoxTest {
+/**
+ * PdfBoxLibrary测试
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
+public class PdfBoxTest  extends AbstractPdfTest {
 
     private static final Logger logger = LoggerFactory.getLogger(PdfBoxTest.class);
 
     @Test
     public void testGetTotalPage() {
         PdfParam pdfParam = new PdfParam.Builder()
-                .setFilePath("D:\\Tmp\\pdf\\test.pdf")
-                .setImagePath("D:\\Tmp\\pdf\\test")
+                .setFilePath(getFilePath())
+                .setImagePath(getImagePath())
                 .setImageName(PdfConstant.EMPTY_STRING)
                 .setImageFormat("jpg")
                 .setImageNameDelimiter(PdfConstant.EMPTY_STRING)
@@ -27,7 +33,7 @@ public class PdfBoxTest {
                 .build();
 
         PdfResult pdfResult = PdfProcessor.getInstance().load(PdfBoxLibrary.class).getTotalPage(pdfParam);
-        System.out.println(JSON.toJSONString(pdfResult));
+        logger.info(JSON.toJSONString(pdfResult));
     }
 
     @Test
@@ -48,8 +54,8 @@ public class PdfBoxTest {
     }
     private void calcTotalPage() {
         PdfParam pdfParam = new PdfParam.Builder()
-                .setFilePath("D:\\Tmp\\pdf\\test.pdf")
-                .setImagePath("D:\\Tmp\\pdf\\test")
+                .setFilePath(getFilePath())
+                .setImagePath(getImagePath())
                 .setImageName(PdfConstant.EMPTY_STRING)
                 .setImageFormat("jpg")
                 .setImageNameDelimiter(PdfConstant.EMPTY_STRING)
@@ -57,14 +63,14 @@ public class PdfBoxTest {
                 .build();
 
         PdfResult pdfResult = PdfProcessor.getInstance().load(PdfBoxLibrary.class).getTotalPage(pdfParam);
-        System.out.println(JSON.toJSONString(pdfResult));
+        logger.info(JSON.toJSONString(pdfResult));
     }
 
     @Test
     public void testConvertPdfToJpg() {
         PdfParam pdfParam = new PdfParam.Builder()
-                .setFilePath("D:\\Tmp\\Pdf\\202203.pdf")
-                .setImagePath("D:\\Tmp\\Pdf\\202203")
+                .setFilePath(getFilePath())
+                .setImagePath(getImagePath())
                 .setImageName(PdfConstant.EMPTY_STRING)
                 .setImageFormat("jpg")
                 .setImageNameDelimiter(PdfConstant.EMPTY_STRING)
@@ -72,7 +78,7 @@ public class PdfBoxTest {
                 .build();
 
         PdfResult pdfResult = PdfProcessor.getInstance().load(PdfBoxLibrary.class).convertToImage(pdfParam);
-        System.out.println(JSON.toJSONString(pdfResult));
+        logger.info(JSON.toJSONString(pdfResult));
     }
 
 

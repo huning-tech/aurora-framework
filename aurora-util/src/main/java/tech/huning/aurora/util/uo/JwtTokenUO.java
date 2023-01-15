@@ -11,14 +11,10 @@ import java.util.Map;
  */
 public class JwtTokenUO {
 
-    // 用户名
-    private String username;
-    // 密钥
-    private String secretKey;
-    // 失效时间(秒)
-    private Long expireSecond;
-    // 令牌
-    private String token;
+    private String username;     // 用户名
+    private String secretKey;    // 密钥
+    private Long expireSecond;   // 失效时间(秒)
+    private String token;        // 令牌
 
     private final Map<String, Object> claims = new HashMap<>();
 

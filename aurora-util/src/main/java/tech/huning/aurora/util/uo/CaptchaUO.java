@@ -11,15 +11,11 @@ import java.time.LocalDateTime;
  */
 public class CaptchaUO {
 
-    private BufferedImage image;//图片文件流
-    
-    private String image64;//图片base64字符串
-    
-    private String type;//图片类型,如"jpeg"
-	
-	private String code;//验证码字符内容
-	
-	private LocalDateTime expireTime;//有效期限
+    private BufferedImage image;       // 图片文件流
+    private String image64;            // 图片base64字符串
+    private String type;               // 图片类型,如"jpeg"
+	private String code;               // 验证码字符内容
+	private LocalDateTime expireTime;  // 有效期限
 	
 	public CaptchaUO(BufferedImage image, String code, int expireIn, String type) {
 		this.image = image;

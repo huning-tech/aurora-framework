@@ -34,10 +34,11 @@ public enum  UtilResultCode implements ResultCode {
     AES_SECRET_KEY_LENGTH_INVALID("aes_secret_key_length_invalid", "AES秘钥长度必须为16字节!"),
 
     MAKE_DIRECTORY_FAILURE("make_directory_failure", "创建文件夹失败!"),
-    GENERATE_THUMBNAILS_FAILURE("generate_thumbnails_failure", "生成缩略图失败!");
+    GENERATE_THUMBNAILS_FAILURE("generate_thumbnails_failure", "生成缩略图失败!"),
+    SCALE_MUST_BE_POSITIVE("scale_must_be_positive", "进度必须为正整数!");
 
-    private String code;
-    private String msg;
+    private final String code;
+    private final String msg;
 
     UtilResultCode(String code, String msg) {
         this.code = code;

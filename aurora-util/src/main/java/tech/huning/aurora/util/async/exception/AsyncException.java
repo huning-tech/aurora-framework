@@ -6,9 +6,15 @@ import tech.huning.aurora.util.StringUtil;
 import tech.huning.aurora.util.async.core.AsyncFault;
 import tech.huning.aurora.util.async.specs.IAsyncFault;
 
+/**
+ * 异步任务处理异常
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
 public class AsyncException extends CommonException {
 
-    private IAsyncFault asyncFault;
+    private final IAsyncFault asyncFault;
 
     public AsyncException(IAsyncFault resultCode) {
         this(resultCode, null);

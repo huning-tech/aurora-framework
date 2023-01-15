@@ -10,15 +10,19 @@ import tech.huning.aurora.util.async.specs.*;
 
 import java.util.UUID;
 
+/**
+ * 异步处理器测试
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
 public class AsyncSchedulerTest {
 
     private static final Logger logger = LoggerFactory.getLogger(AsyncSchedulerTest.class);
-
     private static final IAsyncTopic TOPIC_VIDEO_TRANSFER = () -> "TOPIC_VIDEO_TRANSFER";
 
     @Test
     public void test() {
-
         try {
             startServer();
         } catch (Exception e) {
@@ -32,7 +36,7 @@ public class AsyncSchedulerTest {
         }
 
         try {
-            printHandlings();
+            printHandling();
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
@@ -42,14 +46,8 @@ public class AsyncSchedulerTest {
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
-
     }
 
-
-    /**
-     * 服务端启动
-     * @throws Exception
-     */
     private void startServer() throws Exception {
         AsyncScheduler.getInstance().getServer(new IAsyncConfig() {
             @Override
@@ -61,33 +59,19 @@ public class AsyncSchedulerTest {
             }
 
         }).register((IAsyncExecutor<VideoDTO>) task -> {
-
-            logger.debug("start process>>>{}-{}", task.getData().getDuration(),
-                    task.getData().getTitle());
-            //Thread.sleep(2000);
-            logger.debug("end process<<<{}-{}", task.getData().getDuration(),
-                    task.getData().getTitle());
-
+            logger.debug("start process>>>{}-{}", task.getData().getDuration(), task.getData().getTitle());
+            logger.debug("end process<<<{}-{}", task.getData().getDuration(), task.getData().getTitle());
         }).register((IAsyncOverflowHandler) task -> logger.debug("overflow:{}", JSON.toJSONString(task)))
           .listen();
     }
 
-    /**
-     * 服务端关闭
-     * @throws Exception
-     */
     private void stopServer() throws Exception {
         AsyncScheduler.getInstance().getServer(TOPIC_VIDEO_TRANSFER).shutdown();
     }
 
-    /**
-     * 客户端启动
-     * @throws Exception
-     */
     private void startClient() throws Exception {
-        for(long i = 0; i < 50; i++) {
+        for(long i = 0; i < 15; i++) {
             final long num = i;
-            //Thread.sleep(800);
             AsyncScheduler.getInstance().getClient(TOPIC_VIDEO_TRANSFER).schedule(new IAsyncTask<VideoDTO>() {
                 private String id = UUID.randomUUID().toString();
                 @Override
@@ -107,7 +91,6 @@ public class AsyncSchedulerTest {
             public void run() {
                 while(true) {
                     try {
-                        //Thread.sleep(500);
                         IAsyncStock stocks = AsyncScheduler.getInstance().getServer(TOPIC_VIDEO_TRANSFER).getStock();
                         logger.debug("STOCKS:{}|{}", stocks.getTotal(), JSON.toJSONString(stocks));
                     } catch (Exception e) {
@@ -120,15 +103,14 @@ public class AsyncSchedulerTest {
         t.start();
     }
 
-    private void printHandlings() throws Exception {
+    private void printHandling() throws Exception {
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
                 while(true) {
                     try {
-                        //Thread.sleep(500);
-                        IAsyncHandling handlings = AsyncScheduler.getInstance().getServer(TOPIC_VIDEO_TRANSFER).getHandling();
-                        logger.debug("HANDLINGS:{}|{}", handlings.getTotal(), JSON.toJSONString(handlings));
+                        IAsyncHandling handling = AsyncScheduler.getInstance().getServer(TOPIC_VIDEO_TRANSFER).getHandling();
+                        logger.debug("HANDLING:{}|{}", handling.getTotal(), JSON.toJSONString(handling));
                     } catch (Exception e) {
                         logger.error(e.getMessage(), e);
                     }

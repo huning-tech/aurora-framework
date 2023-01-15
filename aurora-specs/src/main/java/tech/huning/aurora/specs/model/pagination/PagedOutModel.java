@@ -17,7 +17,7 @@ public class PagedOutModel<T> extends Observable implements Observer, Serializab
 	private static final long serialVersionUID = -3067636071933707414L;
 
 	// 总条数
-	private Long totalNumber;
+	private Long totalCount;
 	// 总页数
 	private Long totalPage;
     // 页码
@@ -31,12 +31,12 @@ public class PagedOutModel<T> extends Observable implements Observer, Serializab
 		addObserver(this);
 	}
 
-	public Long getTotalNumber() {
-		return totalNumber;
+	public Long getTotalCount() {
+		return totalCount;
 	}
 
-	public PagedOutModel<T> setTotalNumber(Long totalNumber) {
-		this.totalNumber = totalNumber;
+	public PagedOutModel<T> setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
 		setChanged();
 		notifyObservers();
 		return this;
@@ -85,11 +85,11 @@ public class PagedOutModel<T> extends Observable implements Observer, Serializab
 		if(Objects.isNull(this.getPageSize()) || this.getPageSize() <= 0) {
 			return;
 		}
-		if(Objects.isNull(this.getTotalNumber()) || this.getTotalNumber() < 0) {
+		if(Objects.isNull(this.getTotalCount()) || this.getTotalCount() < 0) {
 			return;
 		}
-		this.totalPage = this.getTotalNumber() / this.getPageSize();
-		if(this.getTotalNumber() % this.getPageSize() != 0){
+		this.totalPage = this.getTotalCount() / this.getPageSize();
+		if(this.getTotalCount() % this.getPageSize() != 0){
 			this.totalPage += 1;
 		}
 	}

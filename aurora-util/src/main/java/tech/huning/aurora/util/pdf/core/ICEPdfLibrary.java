@@ -17,6 +17,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * icepdf处理库
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
 public class ICEPdfLibrary extends AbstractPdfLibrary {
 
     @Override
@@ -63,18 +69,18 @@ public class ICEPdfLibrary extends AbstractPdfLibrary {
 
             pdfResult.setImageFiles(imageFiles);
             pdfResult.setTotalPage(totalPage);
-            pdfResult.setSucc(true);
+            pdfResult.setSuccess(true);
         } catch (PDFException e) {
-            pdfResult.setSucc(false);
+            pdfResult.setSuccess(false);
             throw new PdfException(e);
         } catch (PDFSecurityException e) {
-            pdfResult.setSucc(false);
+            pdfResult.setSuccess(false);
             throw new PdfException(e);
         } catch (IOException e) {
-            pdfResult.setSucc(false);
+            pdfResult.setSuccess(false);
             throw new PdfException(e);
         } catch (PdfException e) {
-            pdfResult.setSucc(false);
+            pdfResult.setSuccess(false);
             throw e;
         } finally {
             document.dispose();

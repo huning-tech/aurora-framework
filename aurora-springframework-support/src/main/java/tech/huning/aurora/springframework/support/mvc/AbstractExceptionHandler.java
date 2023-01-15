@@ -77,7 +77,7 @@ public abstract class AbstractExceptionHandler {
 	public ResponseModel bindException(BindException e){
 		logger.error("bindException:{}", e.getMessage(), e);
 		BindingResult bindingResult = e.getBindingResult();
-		ResponseModel responseModel = new ResponseModel().failure(ResultCode.PARAMETER_CHECK_FAILURE);
+		ResponseModel responseModel = ResponseModel.failure(ResultCode.PARAMETER_CHECK_FAILURE);
 		if (bindingResult.hasErrors()) {
 			List<FieldError> fieldErrors = bindingResult.getFieldErrors();
 			if(fieldErrors.size() > 0) {

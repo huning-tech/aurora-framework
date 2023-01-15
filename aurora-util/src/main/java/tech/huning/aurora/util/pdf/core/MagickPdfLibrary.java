@@ -17,14 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 使用Linux处理Pdf
- *
- * 软件安装
- * 1. ImageMagick
- * 2. poppler-utils
- *
- * 安装指导
- * https://langdashu.com/534197982652928000.shtml
+ * Magick处理库
+ * 1.使用Linux处理Pdf
+ * 2.软件安装
+ *   a) ImageMagick
+ *   b) poppler-utils
+ * 3.<a href="https://langdashu.com/534197982652928000.shtml">安装指导</a>
  *
  * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
  * @author huning
@@ -69,7 +67,7 @@ public final class MagickPdfLibrary extends AbstractPdfLibrary {
 
             try {
                 ShellResult shellResult = ShellConsole.getInstance().exec(new ShellCommand(cmd));
-                if(!shellResult.isSucc()){
+                if(!shellResult.isSuccess()){
                     throw new PdfException(shellResult.getError());
                 }
             } catch (ShellException e) {
@@ -100,7 +98,7 @@ public final class MagickPdfLibrary extends AbstractPdfLibrary {
         try {
             ShellResult result =  ShellConsole.getInstance().exec(new ShellCommand(cmd.toString()));
 
-            if(!result.isSucc()) {
+            if(!result.isSuccess()) {
                 throw new PdfException("execute cmd failed: " + result.getError());
             }
 

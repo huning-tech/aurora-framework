@@ -1,17 +1,23 @@
 package tech.huning.aurora.util.shell.model;
 
+/**
+ * Shell执行结果
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
 public class ShellResult {
 
-    private boolean succ;
+    private boolean success;
     private String data;
     private String error;
 
-    public boolean isSucc() {
-        return succ;
+    public boolean isSuccess() {
+        return success;
     }
 
-    public void setSucc(boolean succ) {
-        this.succ = succ;
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public String getData() {

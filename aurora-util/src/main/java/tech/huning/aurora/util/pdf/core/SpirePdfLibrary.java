@@ -6,6 +6,7 @@ import tech.huning.aurora.util.pdf.model.PdfResult;
 import tech.huning.aurora.util.pdf.specs.IPdfLibrary;
 
 /**
+ * SpirePdf处理库
  * https://www.e-iceblue.com/Download/pdf-for-java-free.html
  *
  * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>

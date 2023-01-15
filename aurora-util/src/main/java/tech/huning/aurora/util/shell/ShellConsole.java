@@ -15,9 +15,9 @@ import java.util.List;
 
 public class ShellConsole implements IShellConsole {
 
-    private static Logger logger = LoggerFactory.getLogger(ShellConsole.class);
+    private static final Logger logger = LoggerFactory.getLogger(ShellConsole.class);
 
-    private static ShellConsole instance = new ShellConsole();
+    private static final ShellConsole instance = new ShellConsole();
 
     private ShellConsole(){}
 
@@ -33,11 +33,11 @@ public class ShellConsole implements IShellConsole {
         try {
             logger.debug("execute {} start", cmd.getLine());
 
-            List<String> cmds = new ArrayList<String>();
-            cmds.add("sh");
-            cmds.add("-c");
-            cmds.add(cmd.getLine());
-            ProcessBuilder pb =new ProcessBuilder(cmds);
+            List<String> cmdJoiner = new ArrayList<>();
+            cmdJoiner.add("sh");
+            cmdJoiner.add("-c");
+            cmdJoiner.add(cmd.getLine());
+            ProcessBuilder pb =new ProcessBuilder(cmdJoiner);
             process = pb.start();
 
             logger.debug("execute {} waitFor", cmd.getLine());
@@ -48,21 +48,21 @@ public class ShellConsole implements IShellConsole {
             }
 
             BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-            StringBuffer errorBuffer = new StringBuffer();
+            StringBuilder errorBuffer = new StringBuilder();
             String error;
             while ((error = errorReader.readLine()) != null) {
                 errorBuffer.append(error);
             }
 
             if(errorBuffer.length() > 0) {
-                shellResult.setSucc(false);
+                shellResult.setSuccess(false);
                 shellResult.setError(errorBuffer.toString());
                 logger.error("execute {}, error {}", cmd.getLine(), errorBuffer.toString());
                 return shellResult;
             }
 
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            StringBuffer inputBuffer = new StringBuffer();
+            StringBuilder inputBuffer = new StringBuilder();
             String input;
             while ((input = inputReader.readLine()) != null) {
                 inputBuffer.append(input);
@@ -73,7 +73,7 @@ public class ShellConsole implements IShellConsole {
                 logger.debug("execute {}, data {}", cmd.getLine(), inputBuffer.toString());
             }
 
-            shellResult.setSucc(true);
+            shellResult.setSuccess(true);
         } catch (IOException e) {
             throw new ShellException(e);
         } finally {

@@ -18,11 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * 官方资料
- *
+ * PdfBox处理库
  * https://pdfbox.apache.org/2.0/commandline.html
  * https://stackoverflow.com/questions/23326562/convert-pdf-files-to-images-with-pdfbox
+ *
  * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
  * @author huning
  */
@@ -70,7 +69,7 @@ public class PdfBoxLibrary extends AbstractPdfLibrary {
 
             pdfResult.setImageFiles(imageFiles);
             pdfResult.setTotalPage(totalPage);
-            pdfResult.setSucc(true);
+            pdfResult.setSuccess(true);
         } catch (IOException e) {
             throw new PdfException(e);
         } finally {

@@ -13,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ThreadUO {
 
-    // 用户会话数据
-    private UserSession userSession;
+    private UserSession userSession;       // 用户会话数据
     private HttpServletRequest request;
     private HttpServletResponse response;
 
