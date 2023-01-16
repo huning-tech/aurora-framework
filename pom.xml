@@ -52,6 +52,7 @@
         <module>aurora-specs</module>
         <module>aurora-util</module>
         <module>aurora-springframework-support</module>
+        <module>aurora-springboot-support</module>
     </modules>
 
     <licenses>

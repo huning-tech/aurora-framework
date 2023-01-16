@@ -9,7 +9,7 @@ import tech.huning.aurora.specs.model.ResultCode;
  * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
  * @author huning
  */
-public class CommonException extends Exception {
+public class CommonException extends RuntimeException {
 
 	private static final long serialVersionUID = -8725011160174071865L;
 	
