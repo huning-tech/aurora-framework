@@ -1,1 +1,3 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=tech.huning.aurora.springboot.support.config.SpringApplicationUtilAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+tech.huning.aurora.springboot.support.application.SpringApplicationUtilAutoConfiguration,\
+tech.huning.aurora.springboot.support.log.LogAutoConfiguration

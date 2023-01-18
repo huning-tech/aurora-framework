@@ -1,14 +1,18 @@
-package tech.huning.aurora.springboot.support.config;
+package tech.huning.aurora.springboot.support.application;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.Configuration;
 import tech.huning.aurora.springboot.support.util.SpringApplicationUtil;
 
-@Configuration
+/**
+ * 应用工具类自动配置
+ *
+ * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * @author huning
+ */
 public class SpringApplicationUtilAutoConfiguration implements ApplicationContextAware {
 
     private static final Logger logger = LoggerFactory.getLogger(SpringApplicationUtilAutoConfiguration.class);

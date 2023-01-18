@@ -1,6 +1,6 @@
 package tech.huning.aurora.specs.model.po;
 
-import tech.huning.aurora.specs.annotation.Automatic;
+import tech.huning.aurora.specs.annotation.Autofill;
 import tech.huning.aurora.specs.constant.CommonConstant;
 
 import java.io.Serializable;
@@ -18,7 +18,7 @@ public class CommonPO implements Serializable {
 	private static final long serialVersionUID = -7238608787196456162L;
 
 	// 主键
-	@Automatic
+	@Autofill
 	protected Long id;
 	// 租户编码
 	protected Long tenantId;

@@ -19,8 +19,10 @@
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
         <java.version>1.8</java.version>
         <swagger-annotations.version>1.6.8</swagger-annotations.version>
+        <lombok.version>1.18.24</lombok.version>
         <junit.version>4.13.2</junit.version>
         <springframework.version>5.3.15</springframework.version>
+        <spring-boot.version>2.7.2</spring-boot.version>
         <slf4j-api.version>1.7.33</slf4j-api.version>
         <hutool.version>4.5.17</hutool.version>
         <poi-ooxml.version>3.17</poi-ooxml.version>
@@ -43,6 +45,7 @@
         <pdfbox.version>2.0.22</pdfbox.version>
         <pdfbox-tools.version>2.0.22</pdfbox-tools.version>
         <fontbox.version>2.0.12</fontbox.version>
+        <aspectjweaver.version>1.9.7</aspectjweaver.version>
         <slf4j-simple.version>1.7.25</slf4j-simple.version>
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
@@ -84,6 +87,11 @@
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
                 <version>${swagger-annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
@@ -206,9 +214,21 @@
                 <version>${fontbox.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectjweaver.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
                 <version>${springframework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
