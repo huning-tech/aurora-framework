@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 异步线程工厂
  *
- * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * <p>更多内容参看<a href="https://huning.tech" target="_blank"><b>胡宁Tech</b></a>
  * @author huning
  */
 public final class AsyncThreadFactory implements ThreadFactory {

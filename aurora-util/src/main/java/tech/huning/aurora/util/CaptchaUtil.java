@@ -16,7 +16,7 @@ import java.util.Random;
  * 图片验证码工具类
  * 1.使用到Algerian字体，系统里没有的话需要安装字体，字体只显示大写，去掉了1,0,i,o几个容易混淆的字符
  *
- * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * <p>更多内容参看<a href="https://huning.tech" target="_blank"><b>胡宁Tech</b></a>
  * @author huning
  */
 public class CaptchaUtil {

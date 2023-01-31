@@ -13,7 +13,7 @@ import java.util.UUID;
 /**
  * 异步处理器测试
  *
- * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * <p>更多内容参看<a href="https://huning.tech" target="_blank"><b>胡宁Tech</b></a>
  * @author huning
  */
 public class AsyncSchedulerTest {

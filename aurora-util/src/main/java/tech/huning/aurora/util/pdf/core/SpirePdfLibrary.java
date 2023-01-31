@@ -9,7 +9,7 @@ import tech.huning.aurora.util.pdf.specs.IPdfLibrary;
  * SpirePdf处理库
  * https://www.e-iceblue.com/Download/pdf-for-java-free.html
  *
- * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * <p>更多内容参看<a href="https://huning.tech" target="_blank"><b>胡宁Tech</b></a>
  * @author huning
  */
 public class SpirePdfLibrary implements IPdfLibrary {

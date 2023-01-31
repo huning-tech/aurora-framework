@@ -7,7 +7,7 @@ import java.util.Date;
  * 基础 Value Object
  * 1.用于定义接口返回数据模型
  *
- * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * <p>更多内容参看<a href="https://huning.tech" target="_blank"><b>胡宁Tech</b></a>
  * @author huning
  */
 public class CommonVO implements Serializable {

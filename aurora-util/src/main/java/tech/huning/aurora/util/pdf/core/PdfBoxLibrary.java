@@ -22,7 +22,7 @@ import java.util.List;
  * https://pdfbox.apache.org/2.0/commandline.html
  * https://stackoverflow.com/questions/23326562/convert-pdf-files-to-images-with-pdfbox
  *
- * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * <p>更多内容参看<a href="https://huning.tech" target="_blank"><b>胡宁Tech</b></a>
  * @author huning
  */
 public class PdfBoxLibrary extends AbstractPdfLibrary {

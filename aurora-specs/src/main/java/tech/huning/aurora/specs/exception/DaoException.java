@@ -6,7 +6,7 @@ import tech.huning.aurora.specs.model.ResultCode;
  * 数据接入层异常
  * 1.用于Dao层处理异常时抛出
  *
- * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * <p>更多内容参看<a href="https://huning.tech" target="_blank"><b>胡宁Tech</b></a>
  * @author huning
  */
 public class DaoException extends CommonException {

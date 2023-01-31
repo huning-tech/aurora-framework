@@ -24,7 +24,7 @@ import java.util.List;
  *   b) poppler-utils
  * 3.<a href="https://langdashu.com/534197982652928000.shtml">安装指导</a>
  *
- * <p>更多内容参看<a href="https://huning.tech"><b>胡宁Tech</b></a>
+ * <p>更多内容参看<a href="https://huning.tech" target="_blank"><b>胡宁Tech</b></a>
  * @author huning
  */
 public final class MagickPdfLibrary extends AbstractPdfLibrary {
