@@ -3,7 +3,6 @@ package tech.huning.aurora.springboot.support.log;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -23,16 +22,13 @@ public class LogAutoConfiguration {
 
     private final Logger logger = LoggerFactory.getLogger(LogAutoConfiguration.class);
 
-    @Autowired
-    private LogProperties globalLogProperties;
-
     @Bean(LogProcessor.BEAN_ID)
     @ConditionalOnProperty(prefix = LogConfig.PREFIX, name = "enabled", havingValue = "true")
-    public LogProcessor processor() {
+    public LogProcessor processor(LogProperties logProperties) {
         if(logger.isDebugEnabled()) {
             logger.debug("LogProcessor Loading");
         }
-        return new LogProcessor(globalLogProperties);
+        return new LogProcessor(logProperties);
     }
 
 }
