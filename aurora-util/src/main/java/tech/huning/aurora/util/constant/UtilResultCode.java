@@ -35,7 +35,7 @@ public enum  UtilResultCode implements ResultCode {
 
     MAKE_DIRECTORY_FAILURE("make_directory_failure", "创建文件夹失败!"),
     GENERATE_THUMBNAILS_FAILURE("generate_thumbnails_failure", "生成缩略图失败!"),
-    SCALE_MUST_BE_POSITIVE("scale_must_be_positive", "进度必须为正整数!");
+    SCALE_MUST_BE_POSITIVE("scale_must_be_positive", "精度必须为正整数!");
 
     private final String code;
     private final String msg;
