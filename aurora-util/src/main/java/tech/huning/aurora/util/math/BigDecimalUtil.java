@@ -17,7 +17,7 @@ public class BigDecimalUtil {
     /**
      * 默认运算精度
      */
-    private static final int DEF_DIV_SCALE = 10;
+    private static final int DEFAULT_SCALE = 10;
 
     private BigDecimalUtil() {
     }
@@ -169,7 +169,7 @@ public class BigDecimalUtil {
      */
 
     public static double divide(double v1, double v2) {
-        return divide(v1, v2, DEF_DIV_SCALE);
+        return divide(v1, v2, DEFAULT_SCALE);
     }
 
     /**
